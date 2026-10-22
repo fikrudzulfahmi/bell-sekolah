@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#4f46e5">
+<title>Bell Sekolah</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--tx:#0f172a;--mu:#64748b;--bd:#e5e9f2;--pri:#4f46e5;--pri2:#7c3aed;--ok:#10b981;--no:#ef4444;--warn:#f59e0b;--soft:#eef0ff;--up:#fff4d6;--sh:0 1px 2px #0f172a0d,0 4px 16px #0f172a0a}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1020;--card:#141a2e;--tx:#e8ecf8;--mu:#94a0c0;--bd:#232b47;--soft:#1d2447;--up:#3a2f10;--sh:0 1px 2px #0006}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx);padding-bottom:84px}
+.top{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--bd);padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));display:flex;align-items:center;gap:10px}
+.top .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--pri),var(--pri2));display:grid;place-items:center;font-size:18px}
+.top h1{font-size:17px;margin:0;flex:1}.top small{display:block;color:var(--mu);font-weight:400;font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:99px;background:var(--soft);color:var(--pri);font-weight:600}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--mu)}.pill.on i{background:var(--ok);box-shadow:0 0 0 4px #10b98133}.pill.on{color:var(--ok);background:#10b9811a}
+main{max-width:860px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:var(--sh)}
+.card h2{font-size:15px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.hero{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;border:0;text-align:center;padding:24px 16px}
+.hero .d{opacity:.85;font-size:13px}.hero .clk{font-size:clamp(44px,13vw,72px);font-weight:800;letter-spacing:-1px;font-variant-numeric:tabular-nums;line-height:1.1;margin:4px 0 16px}
+.big{width:100%;max-width:340px;border:0;border-radius:14px;padding:14px;font-size:16px;font-weight:700;cursor:pointer;background:#fff;color:var(--pri);box-shadow:0 4px 14px #0003}
+.big.stop{background:#ffffff30;color:#fff;box-shadow:none;border:1px solid #fff6}
+.hero .n{margin-top:10px;font-size:13px;opacity:.9}
+.alert{background:#ef444418;color:var(--no);border:1px solid #ef444440;border-radius:12px;padding:10px 12px;font-size:13px;margin-top:12px;text-align:left}
+.hero .alert{background:#0003;color:#fff;border-color:#fff4}
+button,select,input{font:inherit;color:inherit}
+.btn{border:0;border-radius:10px;padding:9px 14px;font-weight:600;cursor:pointer;background:var(--pri);color:#fff;display:inline-flex;align-items:center;gap:6px;min-height:40px}
+.btn.g{background:var(--soft);color:var(--pri)}.btn.r{background:#ef44441a;color:var(--no)}.btn.ok{background:#10b9811a;color:var(--ok)}.btn.sm{padding:6px 10px;min-height:34px}
+.btn:active{transform:scale(.97)}
+input[type=text],input[type=time],input[type=date],select,input:not([type]){background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:9px 10px;min-height:40px;max-width:100%}
+select{width:100%}input[type=time]{width:110px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.grow{flex:1;min-width:0}.mu{color:var(--mu);font-size:13px}
+.sw{position:relative;width:50px;height:30px;flex:none}.sw input{opacity:0;position:absolute;inset:0;width:100%;height:100%;margin:0;z-index:2;cursor:pointer}
+.sw span{position:absolute;inset:0;background:var(--bd);border-radius:99px;transition:.2s}.sw span:after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px #0004}
+.sw input:checked+span{background:var(--warn)}.sw input:checked+span:after{left:23px}
+.upbox{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:var(--bg);border:1px solid var(--bd)}.upbox.on{background:var(--up);border-color:var(--warn)}
+.tl{list-style:none;margin:10px 0 0;padding:0}.tl li{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--bd)}
+.tl .t{font-weight:700;font-variant-numeric:tabular-nums;color:var(--pri);min-width:52px}.tl li.past{opacity:.45}.tl li.next .t{background:var(--pri);color:#fff;border-radius:8px;padding:2px 8px;min-width:0}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;background:var(--soft);color:var(--pri);font-size:12px;font-weight:600}.tag.up{background:var(--up);color:var(--warn)}
+.bell{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--bd)}
+.bell .f2{grid-column:1/-1;display:grid;grid-template-columns:1fr auto auto;gap:8px}
+.day{display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;padding:6px 0}
+#log{font:12px/1.6 ui-monospace,Menlo,monospace;color:var(--mu);max-height:220px;overflow:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{background:var(--up);color:var(--warn);border-radius:99px;padding:5px 6px 5px 12px;font-size:13px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+.chip b{width:22px;height:22px;border-radius:50%;background:#0002;display:grid;place-items:center;cursor:pointer;font-size:11px}
+.tabs{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--bd);display:flex;padding:6px 6px max(6px,env(safe-area-inset-bottom));z-index:6}
+.tabs button{flex:1;border:0;background:none;padding:6px 0;color:var(--mu);font-size:11px;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;border-radius:12px}
+.tabs button .i{font-size:21px;line-height:1}.tabs button.on{color:var(--pri);background:var(--soft)}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:9px 16px;border-radius:99px;font-size:13px;display:none;z-index:9;box-shadow:0 6px 20px #0005}
+input[type=range]{width:100%;accent-color:var(--pri)}
+@media(min-width:760px){body{padding-bottom:0;padding-left:210px}.top{margin-left:-210px;padding-left:226px;width:calc(100% + 210px)}
+ .tabs{top:0;bottom:auto;right:auto;width:210px;height:100vh;flex-direction:column;border-top:0;border-right:1px solid var(--bd);padding:80px 10px 10px;gap:4px;z-index:4}
+ .tabs button{flex:none;flex-direction:row;gap:12px;padding:12px 14px;font-size:14px}#toast{bottom:24px}}
+</style></head><body>
+<div class="top"><div class="logo">🔔</div><h1>Bell Sekolah<small>bel berjalan di server</small></h1><span class="pill" id="pill"><i></i><span>…</span></span></div>
+<main id="app"><div class="mu">Memuat…</div></main>
+<nav class="tabs" id="nav"></nav><div id="toast"></div>
+<script>
+const DAYS=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+const uid=()=>Math.random().toString(36).slice(2,9);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let S=null,ST={},tab='home',tmr;
+const api=async(m,p,b)=>{try{const r=await fetch('api/'+p,{method:m,headers:{'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});const j=await r.json().catch(()=>({}));if(!r.ok)toast(j.error||'Error '+r.status);return j}catch(e){toast('Server tidak terjangkau');return{}}};
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',2200)}
+function save(){clearTimeout(tmr);tmr=setTimeout(async()=>{const r=await api('PUT','config',S);if(r.ok)toast('Tersimpan ✓')},350)}
+async function load(){ST=await api('GET','state');if(ST.config){S=ST.config;render()}}
+async function poll(){const s=await api('GET','state');if(!s.config||!S)return;const was=S.enabled;ST={...s,config:S};S.enabled=s.config.enabled;S.sounds=s.config.sounds;
+ const c=document.getElementById('clk');if(c)c.textContent=s.time;const l=document.getElementById('log');if(l)l.innerHTML=s.logs.map(esc).join('<br>');pill();if(was!==S.enabled&&tab==='home')render()}
+setInterval(poll,2000);
+const sch=id=>S.schedules.find(s=>s.id===id),pr=id=>S.presets.find(p=>p.id===id),it=(s,i)=>sch(s).items.find(x=>x.id===i);
+const srt=a=>a.slice().sort((x,y)=>x.time<y.time?-1:1);
+const sOpts=sel=>`<option value="default" ${sel==='default'?'selected':''}>🔔 Bel bawaan</option>`+S.sounds.map(s=>`<option value="${s.id}" ${sel===s.id?'selected':''}>🎵 ${esc(s.name)}</option>`).join('');
+const jOpts=(sel,none)=>(none?`<option value="" ${!sel?'selected':''}>— tidak ada bel —</option>`:'')+S.schedules.map(s=>`<option value="${s.id}" ${sel===s.id?'selected':''}>${esc(s.name)}</option>`).join('');
+function pill(){const p=document.getElementById('pill');if(!p||!S)return;p.className='pill'+(S.enabled?' on':'');p.lastChild.textContent=S.enabled?'Aktif':'Mati'}
+const T=[['home','🏠','Beranda'],['jadwal','🗓️','Jadwal'],['preset','📋','Preset'],['suara','🎵','Suara']];
+function render(){document.getElementById('nav').innerHTML=T.map(([k,i,n])=>`<button class="${k==tab?'on':''}" onclick="tab='${k}';render();scrollTo(0,0)"><span class="i">${i}</span>${n}</button>`).join('');pill();
+ const a=document.getElementById('app');if(!S)return;
+ if(tab==='home'){const up=ST.todayUpacara,sc=ST.todaySchedule?sch(ST.todaySchedule):null,now=ST.time.slice(0,5);
+  const items=sc?srt(sc.items):[],nx=items.find(i=>i.time>now);
+  a.innerHTML=`<div class="card hero"><div class="d">${DAYS[ST.dow]}, ${ST.date} · ${esc(ST.tz)}</div><div class="clk" id="clk">${ST.time}</div>
+  <button class="big ${S.enabled?'stop':''}" onclick="toggle()">${S.enabled?'⏹ Matikan bel otomatis':'▶ Aktifkan bel otomatis'}</button>
+  <div class="n">${S.enabled?(nx?`Bel berikutnya <b>${nx.time}</b> · ${esc(nx.label)}`:'Tidak ada bel lagi hari ini'):'Bel otomatis sedang mati'}</div>
+  ${ST.player?'':'<div class="alert">⚠ Server belum punya pemutar suara (mpg123/alsa-utils/ffmpeg). Bel tidak akan terdengar.</div>'}</div>
+  <div class="card"><h2>📅 Hari ini</h2>
+  <div class="mu" style="margin-bottom:6px">Preset aktif</div><select onchange="S.active=this.value;save();render()">${S.presets.map(x=>`<option value="${x.id}" ${x.id===S.active?'selected':''}>${esc(x.name)}</option>`).join('')}</select>
+  <div class="upbox ${up?'on':''}" style="margin-top:12px"><label class="sw"><input type="checkbox" ${up?'checked':''} onchange="setUp(ST.date,this.checked)"><span></span></label><div class="grow"><b>Hari ini ada upacara</b><div class="mu">Pakai jadwal upacara di hari apa pun</div></div></div>
+  <div style="margin-top:12px">Jadwal terpakai: <span class="tag ${up?'up':''}">${sc?esc(sc.name):'tidak ada bel'}</span></div>
+  <ul class="tl">${items.map(i=>`<li class="${i.time<=now?'past':i===nx?'next':''}"><span class="t">${i.time}</span><span class="grow">${esc(i.label)}</span></li>`).join('')||'<li class="mu">Tidak ada bel hari ini.</li>'}</ul></div>
+  <div class="card"><h2>🎺 Upacara di tanggal lain</h2><div class="row"><input type="date" id="ud" class="grow"><button class="btn" onclick="if(ud.value)setUp(ud.value,true)">Tambah</button></div>
+  <div class="chips" style="margin-top:10px">${S.upacaraDates.slice().sort().map(x=>`<span class="chip">${x}<b onclick="setUp('${x}',false)">✕</b></span>`).join('')||'<span class="mu">Belum ada tanggal.</span>'}</div></div>
+  <div class="card"><h2>🔊 Tes di speaker server</h2><select id="ms">${sOpts('default')}</select>
+  <div class="row" style="margin-top:10px"><button class="btn grow" onclick="api('POST','play',{sound:ms.value}).then(r=>toast(r.ok?'Diputar':'Gagal — cek pemutar'))">▶ Putar</button><button class="btn r" onclick="api('POST','stop')">■ Stop</button></div>
+  <div class="mu" style="margin:14px 0 4px">Volume</div><input type="range" min="0" max="100" value="80" id="vol" onchange="api('POST','volume',{volume:+vol.value}).then(r=>toast(r.ok?'Volume '+vol.value+'%':'Volume tak bisa diatur'))"></div>
+  <div class="card"><h2>📜 Log server</h2><div id="log">${ST.logs.map(esc).join('<br>')}</div></div>`}
+ if(tab==='jadwal'){a.innerHTML=`<div class="row" style="margin-bottom:12px"><button class="btn" onclick="S.schedules.push({id:uid(),name:'Jadwal baru',items:[]});save();render()">＋ Jadwal baru</button></div>`+
+  S.schedules.map(s=>`<div class="card"><div class="row"><input class="grow" style="font-weight:700" value="${esc(s.name)}" onchange="sch('${s.id}').name=this.value;save()"></div>
+  <div style="margin-top:6px">${srt(s.items).map(i=>`<div class="bell"><input type="time" value="${i.time}" onchange="it('${s.id}','${i.id}').time=this.value;save();render()"><input value="${esc(i.label)}" placeholder="Keterangan" onchange="it('${s.id}','${i.id}').label=this.value;save()"><button class="btn r sm" onclick="sch('${s.id}').items=sch('${s.id}').items.filter(x=>x.id!=='${i.id}');save();render()">✕</button>
+  <div class="f2"><select onchange="it('${s.id}','${i.id}').sound=this.value;save()">${sOpts(i.sound)}</select><button class="btn g sm" onclick="api('POST','play',{sound:it('${s.id}','${i.id}').sound})">▶</button><button class="btn g sm" onclick="api('POST','stop')">■</button></div></div>`).join('')||'<div class="mu">Belum ada bel.</div>'}</div>
+  <div class="row" style="margin-top:12px"><button class="btn ok" onclick="sch('${s.id}').items.push({id:uid(),time:'07:00',sound:'default',label:'Bel'});save();render()">＋ Tambah bel</button><button class="btn g" onclick="dup('${s.id}')">Duplikat</button><button class="btn r" onclick="delSch('${s.id}')">Hapus</button></div></div>`).join('')}
+ if(tab==='preset'){a.innerHTML=`<div class="card mu">Preset = pilihan jadwal untuk tiap hari (mis. “Harian”, “Ujian”). Preset aktif dipilih di Beranda.</div><div class="row" style="margin-bottom:12px"><button class="btn" onclick="S.presets.push({id:uid(),name:'Preset baru',map:{0:null,1:null,2:null,3:null,4:null,5:null,6:null},upacara:null});save();render()">＋ Preset baru</button></div>`+
+  S.presets.map(p=>`<div class="card"><div class="row"><input class="grow" style="font-weight:700" value="${esc(p.name)}" onchange="pr('${p.id}').name=this.value;save()">${p.id===S.active?'<span class="tag">aktif</span>':''}</div>
+  <div style="margin-top:8px">${[1,2,3,4,5,6,0].map(d=>`<div class="day"><b>${DAYS[d]}</b><select onchange="pr('${p.id}').map[${d}]=this.value||null;save()">${jOpts(p.map[d],1)}</select></div>`).join('')}
+  <div class="day" style="background:var(--up);border-radius:12px;padding:8px;margin-top:6px"><b>🎺 Upacara</b><select onchange="pr('${p.id}').upacara=this.value||null;save()">${jOpts(p.upacara,1)}</select></div></div>
+  <div class="row" style="margin-top:12px">${p.id===S.active?'':`<button class="btn ok" onclick="S.active='${p.id}';save();render()">Jadikan aktif</button>`}<button class="btn g" onclick="S.presets.push(JSON.parse(JSON.stringify({...pr('${p.id}'),id:uid(),name:pr('${p.id}').name+' (salinan)'})));save();render()">Duplikat</button><button class="btn r" onclick="delPreset('${p.id}')">Hapus</button></div></div>`).join('')}
+ if(tab==='suara'){a.innerHTML=`<div class="card"><h2>⬆️ Unggah suara</h2><div class="mu" style="margin-bottom:8px">mp3 / wav / ogg / m4a, maks 50 MB</div><input type="file" id="f" accept="audio/*" multiple style="width:100%;margin-bottom:10px"><button class="btn" onclick="upl()">Unggah</button></div>
+  <div class="card"><h2>🎵 Daftar suara</h2><div class="bell" style="grid-template-columns:1fr auto;border-top:0"><b>🔔 Bel bawaan</b><button class="btn g sm" onclick="api('POST','play',{sound:'default'})">▶</button></div>
+  ${S.sounds.map(s=>`<div class="bell" style="grid-template-columns:1fr auto auto auto"><input value="${esc(s.name)}" onchange="S.sounds.find(x=>x.id==='${s.id}').name=this.value;save()"><button class="btn g sm" onclick="api('POST','play',{sound:'${s.id}'})">▶</button><button class="btn g sm" onclick="api('POST','stop')">■</button><button class="btn r sm" onclick="delSound('${s.id}')">✕</button></div>`).join('')}
+  <div class="mu" style="margin-top:8px">▶ memutar di speaker server.</div></div>`}}
+async function toggle(){const v=!S.enabled;await api('POST','enable',{enabled:v});S.enabled=v;render()}
+function setUp(d,on){S.upacaraDates=S.upacaraDates.filter(x=>x!==d);if(on)S.upacaraDates.push(d);api('PUT','config',S).then(load)}
+function dup(id){const s=sch(id);S.schedules.push({id:uid(),name:s.name+' (salinan)',items:s.items.map(i=>({...i,id:uid()}))});save();render()}
+function delSch(id){if(!confirm('Hapus jadwal ini?'))return;S.schedules=S.schedules.filter(s=>s.id!==id);S.presets.forEach(p=>{for(const k in p.map)if(p.map[k]===id)p.map[k]=null;if(p.upacara===id)p.upacara=null});save();render()}
+function delPreset(id){if(S.presets.length<2)return alert('Minimal satu preset');if(!confirm('Hapus preset?'))return;S.presets=S.presets.filter(p=>p.id!==id);if(S.active===id)S.active=S.presets[0].id;save();render()}
+async function upl(){const fs=document.getElementById('f').files;if(!fs.length)return toast('Pilih file dulu');for(const f of fs){toast('Mengunggah '+f.name+'…');const r=await fetch('api/upload?name='+encodeURIComponent(f.name),{method:'POST',body:f});const j=await r.json();if(!r.ok)toast(j.error)}toast('Selesai ✓');await load()}
+async function delSound(id){if(!confirm('Hapus suara?'))return;await api('DELETE','sound/'+id);await load()}
+load();
+</script></body></html>
